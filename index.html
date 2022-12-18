@@ -1,0 +1,75 @@
+<body>
+    <script>
+
+        const toDoList = {
+            _arrayToDo: [],
+            addTask: obj => {
+                let findByName = toDoList._arrayToDo.find(task => task.name === obj.name);
+                if (findByName) {
+                    return _arrayToDo;
+                }
+                toDoList._arrayToDo.push(obj);
+                return toDoList._arrayToDo;
+            },
+
+            deleteTask: (_arrayToDo, word) => {
+                let deleteByName = toDoList._arrayToDo.find(del => word === _arrayToDo.name);
+                if (deleteByName) {
+                    return 
+                }
+
+                _arrayToDo.splice(index, 1);
+                return _arrayToDo
+            },
+
+            totalNumber: (_arrayToDo) => {
+                var total = `total number of tasks is ${_arrayToDo.length}`;
+                return total;
+            },
+
+            completedNumber: (_arrayToDo) => {
+                let complCount = 0;
+                for (let key of _arrayToDo) {
+
+                    if (key.completed === true) {
+                        complCount ++;
+                    }
+                    return `total number of completed tasks is ${complCount}`;
+                }
+            },
+
+            uncompletedNumber(_arrayToDo) {
+                let uncomplCount = 0;
+                for (const key in _arrayToDo) {
+                    if (_arrayToDo[key].completed === false) {
+                        uncomplCount++;
+                    }
+
+                }
+                return `total number of uncompleted tasks is ${uncomplCount}`;
+            },
+
+            get arrayToDo() {
+                
+                return [...this._arrayToDo];
+            },
+
+        };
+
+        
+
+        Object.freeze(toDoList);
+        
+        Object.defineProperties(toDoList,  {
+            arrayToDo: {enumerable: true}, 
+            addTask: {enumerable: false},
+            deleteTask: {enumerable: false}, 
+            totalNumber: {enumerable: false}, 
+            completedNumber: {enumerable: false}, 
+            uncompletedNumber: {enumerable: false}
+        }); 
+             
+        
+
+    </script>
+</body>
